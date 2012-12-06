@@ -8,17 +8,17 @@ class WordCompletion(sublime_plugin.EventListener):
         if len(prefix) < 3:
             return []
 
-        words = self.look(prefix)
+        words = self.look(view, prefix)
         return [(w, w) for w in words]
 
-    def command(self):
+    def command(self, view):
         try:
-            return self.view.settings().get("word_completion").get("command")
+            return view.settings().get("word_completion").get("command")
         except AttributeError:
             return "look"
 
-    def look(self, prefix):
-        result = commands.getoutput("%s %s" % (self.command(), prefix))
+    def look(self, view, prefix):
+        result = commands.getoutput("%s %s" % (self.command(view), prefix))
         if len(result) > 0:
             return result.split("\n")
         else:
