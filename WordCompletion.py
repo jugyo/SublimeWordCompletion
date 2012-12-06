@@ -8,7 +8,9 @@ class WordCompletion(sublime_plugin.EventListener):
             return []
 
         words = self.look(view, prefix)
-        return [(w.replace(prefix.lower(), prefix),) * 2 for w in words]
+        words = map(lambda w: w.replace(prefix.lower(), prefix), words)
+        words = filter(lambda w: w != prefix, words)
+        return [(w,) * 2 for w in words]
 
     def command(self, view):
         try:
