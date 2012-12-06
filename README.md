@@ -3,6 +3,8 @@ WordCompletion
 
 Sublime Text 2 plugin to do word completion using the `look` command.
 
+![Screenshot](http://i.imgur.com/nPLkG.png)
+
 ## Installation
 
 ```
