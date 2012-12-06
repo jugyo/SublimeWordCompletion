@@ -2,14 +2,13 @@ import commands
 import sublime_plugin
 import sublime
 
-# TODO: capytalize if needed
 class WordCompletion(sublime_plugin.EventListener):
     def on_query_completions(self, view, prefix, locations):
         if len(prefix) < 3:
             return []
 
         words = self.look(view, prefix)
-        return [(w, w) for w in words]
+        return [(w.replace(prefix.lower(), prefix),) * 2 for w in words]
 
     def command(self, view):
         try:
