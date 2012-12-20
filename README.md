@@ -17,7 +17,6 @@ $ git clone https://github.com/jugyo/SublimeWordCompletion.git WordCompletion
 To change the command to completion edit `Preferences.sublime-settings` like below:
 
 ```
-# 
 {
   "word_completion": {"command": "look"}
 }
